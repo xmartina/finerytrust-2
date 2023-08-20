@@ -132,7 +132,7 @@ $sendMail = new emailMessage();
                 <div class="inner-container clearfix">
                     <div class="pull-left logo-box">
                         <div class="logo">
-                            <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" /></a>
+                            <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
                         </div>
                     </div>
 
@@ -222,7 +222,7 @@ $sendMail = new emailMessage();
             <div class="close-btn"><span class="icon lnr lnr-cross"></span></div>
             <nav class="menu-box">
                 <div class="nav-logo">
-                    <a href="<?= $web_url ?>"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" /></a>
+                    <a href="<?= $web_url ?>"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
                 </div>
                 <div class="menu-outer">
                     <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
