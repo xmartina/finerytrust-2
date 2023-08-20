@@ -130,78 +130,8 @@ $sendMail = new emailMessage();
         <div class="header-upper">
             <div class="auto-container">
                 <div class="inner-container clearfix">
-                    <div class="row d-none d-lg-block d-xl-block">
-                        <div class="col-lg-4">
-                            <div class="logo w-100">
-                                <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <nav class="main-menu navbar-expand-md">
-                                <div class="navbar-header">
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-
-                                <div class="navbar-collapse show collapse clearfix" id="navbarSupportedContent">
-                                    <ul class="navigation clearfix">
-                                        <li><a href="<?= $web_url ?>">Home</a></li>
-                                        <li class="dropdown">
-                                            <a href="#">Personal <i class="fa fa-caret-down"></i></a>
-                                            <ul>
-                                                <li><a href="<?= $web_url ?>/p/ultimate-checking.php">Ultimate Checking</a></li>
-                                                <li>
-                                                    <a href="<?= $web_url ?>/p/health-savings-account.php">Health Savings Account (NSA)</a>
-                                                </li>
-                                                <li>
-                                                    <a href="<?= $web_url ?>/p/individual-retirement-account.php">Individual Retirement Account(IRAs)</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Business <i class="fa fa-caret-down"></i></a>
-                                            <ul>
-                                                <li><a href="<?= $web_url ?>/p/overdraft-protection-sweeps.php">Overdraft Protection & Sweeps</a></li>
-                                                <li>
-                                                    <a href="<?= $web_url ?>/p/business-essential-checking.php">Business Essential Checking</a>
-                                                </li>
-                                                <li>
-                                                    <a href="<?= $web_url ?>/p/business-savings-account.php">Business Savings Account</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Loans <i class="fa fa-caret-down"></i></a>
-                                            <ul class="from-right">
-                                                <li><a href="<?= $web_url ?>/p/home-mortgage-loans.php">Home Mortgage Loans</a></li>
-                                                <li><a href="<?= $web_url ?>/p/personal-loans.php">Personal Loans</a></li>
-                                                <li><a href="<?= $web_url ?>/p/working-capital-loans.php">Working Capital Loans</a></li>
-                                                <li><a href="<?= $web_url ?>/p/investment-property-loans.php">Investment Property Loans</a></li>
-                                                <li><a href="<?= $web_url ?>/p/commercial-real-estate-loans.php">Commercial Real Estate Loans</a></li>
-                                                <li><a href="<?= $web_url ?>/p/business-term-loans.php">Business Term Loans</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Services <i class="fa fa-caret-down"></i></a>
-                                            <ul class="from-right">
-                                                <li><a href="<?= $web_url ?>/p/online-banking.php">Online Banking</a></li>
-                                                <li><a href="<?= $web_url ?>/p/wire-transfers.php">Wire Transfers</a></li>
-                                                <li><a href="<?= $web_url ?>/p/lost-cards.php">Lost or Stolen Cards</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="current">
-                                            <a href="<?= $web_url ?>/p/contact.php">Contact</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="pull-left d-none d-md-block d-sm-block logo-box">
-                        <div class="logo w-100">
+                    <div class="pull-left logo-box">
+                        <div class="logo custom-logo">
                             <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
                         </div>
                     </div>
