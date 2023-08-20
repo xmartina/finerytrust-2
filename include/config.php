@@ -1,7 +1,7 @@
 <?php
 
 define("WEB_TITLE","Finery Trust PLC"); // Change Bank Name
-define("WEB_URL","https://finerytrust.com/new-tpl"); // Change No "/" Ending splash
+define("WEB_URL","https://finerytrust.com/"); // Change No "/" Ending splash
 define("WEB_EMAIL","info@finerytrust.com"); // Change Your Website Email
 
 $web_url = WEB_URL;
