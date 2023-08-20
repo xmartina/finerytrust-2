@@ -221,7 +221,7 @@ $sendMail = new emailMessage();
             <div class="menu-backdrop"></div>
             <div class="close-btn"><span class="icon lnr lnr-cross"></span></div>
             <nav class="menu-box">
-                <div class="nav-logo w-100">
+                <div class="nav-logo custom-logo">
                     <a href="<?= $web_url ?>"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
                 </div>
                 <div class="menu-outer">
