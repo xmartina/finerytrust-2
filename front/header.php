@@ -225,8 +225,8 @@ $sendMail = new emailMessage();
             <nav class="menu-box">
                 <div class="nav-logo custom-logo">
                     <a href="<?= $web_url ?>">
-                        <img src="<?= $web_url ?>/assets/images/logo/fine-mobile-logo.png" alt="" title="" class="w-100"/>
-<!--                        <img src="--><?php //= $web_url ?><!--/assets/images/logo/--><?php //= $page['image'] ?><!--" alt="" title="" class="w-100"/>-->
+<!--                        <img src="--><?php //= $web_url ?><!--/assets/images/logo/fine-mobile-logo.png" alt="" title="" class="w-100"/>-->
+                        <img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/>
                     </a>
                 </div>
                 <div class="menu-outer">
