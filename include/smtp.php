@@ -10,18 +10,18 @@ class message{
         $mail = new PHPMailer();
         //SMTP Settings
         $mail->isSMTP();
-        $mail->Host = "#"; // Change Email Host
+        $mail->Host = "mail.finerytrust.com"; // Change Email Host
         $mail->SMTPAuth = true;
-        $mail->Username = "#"; // Change Email Address
-        $mail->Password = '#'; // Change Email Password
+        $mail->Username = "info@finerytrust.com"; // Change Email Address
+        $mail->Password = '+Finerytrust123'; // Change Email Password
         $mail->Port = 465; //587
         $mail->SMTPSecure = "ssl"; //tls
 
         //Email Settings
         $mail->isHTML(true);
-        $mail->setFrom('support@dirtyscripts.shop','Ofofonobs Developer'); // Change
+        $mail->setFrom('info@finerytrust.com','Finery Trust PLC'); // Change
         $mail->addAddress($email);
-        $mail->AddReplyTo("support@dirtyscripts.shop", "Ofofonobs Developer"); // Change
+        $mail->AddReplyTo("info@finerytrust.com", "Finery Trust PLC"); // Change
         $mail->Subject = $subject;
         $mail->MsgHTML($message);
         $mail->Send();
