@@ -132,7 +132,9 @@ $sendMail = new emailMessage();
                 <div class="inner-container clearfix d-flex align-items-center">
                     <div class="pull-left logo-box">
                         <div class="logo custom-logo">
-                            <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="log-img"/></a>
+                            <a href="/">
+                                <img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="log-img"/>
+                            </a>
                         </div>
                     </div>
 
