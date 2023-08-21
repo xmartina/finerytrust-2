@@ -168,6 +168,7 @@ Function disableclick(e)
  <?= $page['livechat'] ?>
 
 <!--End of Livechat Script-->
+<script src="//code.tidio.co/ytsspac7qujlparwffoqmnstghh31lz1.js" async></script>
 </body>
 
 
