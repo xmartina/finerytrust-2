@@ -94,7 +94,7 @@ $sendMail = new emailMessage();
         }
     }
 </script>
-
+    <link rel="stylesheet" href="<?= $web_url ?>/front/css/custome.css">
 </head>
 
 <body oncontextmenu="return false">
