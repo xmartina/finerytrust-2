@@ -6,7 +6,7 @@
         max-width:70px!important;
     }
 }
-.custom-logo img {
+.custom-logo img.log-img {
     display: inline-block;
     max-width: 170px!important;
     height: auto;
