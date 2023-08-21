@@ -6,3 +6,8 @@
         max-width:70px!important;
     }
 }
+.custom-logo img {
+    display: inline-block;
+    max-width: 170px!important;
+    height: auto;
+}

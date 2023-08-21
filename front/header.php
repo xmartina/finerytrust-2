@@ -129,7 +129,7 @@ $sendMail = new emailMessage();
         <!-- Header Upper -->
         <div class="header-upper">
             <div class="auto-container">
-                <div class="inner-container clearfix">
+                <div class="inner-container clearfix d-flex align-items-center">
                     <div class="pull-left logo-box">
                         <div class="logo custom-logo">
                             <a href="/"><img src="<?= $web_url ?>/assets/images/logo/<?= $page['image'] ?>" alt="" title="" class="w-100"/></a>
