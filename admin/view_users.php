@@ -52,10 +52,10 @@ if(isset($_POST['upload_picture'])){
         }else{
             echo "invalid";
         }
-        
+
         // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
         header("Location:./users.php");
-die;
+        die;
 
 
     }
@@ -72,9 +72,9 @@ if(isset($_POST['profile_save'])){
     $marital_status = $_POST['marital_status'];
     $acct_limit = $_POST['acct_limit'];
     $acct_balance = $_POST['acct_balance'];
-     $acct_cot = $_POST['acct_cot'];
-      $acct_imf = $_POST['acct_imf'];
-       $acct_tax = $_POST['acct_tax'];
+    $acct_cot = $_POST['acct_cot'];
+    $acct_imf = $_POST['acct_imf'];
+    $acct_tax = $_POST['acct_tax'];
 
 
 //    if($acct_limit === '5000'){
@@ -110,26 +110,26 @@ if(isset($_POST['profile_save'])){
     ]);
 
     if(true){
-       // toast_alert('success','Account updated successfully','Approved');
+        // toast_alert('success','Account updated successfully','Approved');
         header("Location:./users.php");
-        
-        
+
+
     }else{
         toast_alert('error','Sorry something went wrong');
-        
-        
-    }
-    
-    //header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-    
 
-    
+
+    }
+
+    //header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+
+
+
 
 }
 
 
 if(isset($_POST['status_delete'])){
-    
+
     $sql = "DELETE FROM users WHERE users.id='$id'";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
@@ -143,9 +143,9 @@ if(isset($_POST['status_delete'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-    
 
-    
+
+
 }
 
 
@@ -176,9 +176,9 @@ if(isset($_POST['change_pin'])){
             toast_alert('error', 'Sorry Something Went Wrong');
         }
     }
-    
+
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-    
+
 
 
 }
@@ -213,9 +213,9 @@ if(isset($_POST['change_password'])) {
             toast_alert('error', 'Sorry Something Went Wrong');
         }
     }
-    
-   //  header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-  
+
+    //  header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+
 
 }
 
@@ -235,9 +235,9 @@ if(isset($_POST['status_submit'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-    
+
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-    
+
 
 }
 
@@ -261,10 +261,10 @@ if(isset($_POST['billing_code'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-    
+
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
     header("Location:./users.php");
-die;
+    die;
 }
 
 if(isset($_POST['transfer'])){
@@ -287,10 +287,10 @@ if(isset($_POST['transfer'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-    
+
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
     header("Location:./users.php");
-die;
+    die;
 }
 
 ?>
@@ -327,11 +327,11 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">Account No</label>
-<!--                                                                    --><?php
-//                                                                    echo "<pre>";
-//                                                                    print_r($_POST)
-//                                                                    ?>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Full Name" value="<?= $row['acct_no'] ?>" name="acct_no" >
+                                                                    <!--                                                                    --><?php
+                                                                    //                                                                    echo "<pre>";
+                                                                    //                                                                    print_r($_POST)
+                                                                    //                                                                    ?>
+                                                                    <input type="text" class="form-control mb-4"  placeholder="Account Number" value="<?= $row['acct_no'] ?>" name="acct_no" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
@@ -359,7 +359,7 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="fullName" placeholder="Full Name" value="<?= $row['acct_email'] ?>" name="acct_email" >
+                                                                    <input type="text" class="form-control mb-4" id="fullName" placeholder="Email" value="<?= $row['acct_email'] ?>" name="acct_email" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
@@ -380,28 +380,28 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">Phone Number</label>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Date Of Birth" value="<?= $row['acct_phone'] ?>" name="acct_phone">
+                                                                    <input type="text" class="form-control mb-4"  placeholder="Phone Number" value="<?= $row['acct_phone'] ?>" name="acct_phone">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
-                                                         <div class="row">
+
+
+                                                        <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">COT code</label>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Ocuppation" value="<?= $row['acct_cot'] ?>" name="acct_cot">
+                                                                    <input type="text" class="form-control mb-4"  placeholder="COT code" value="<?= $row['acct_cot'] ?>" name="acct_cot">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">IMF code</label>
-                                                                    <input type="text" class="form-control mb-4" placeholder="Date Of Birth" value="<?= $row['acct_imf'] ?>" name="acct_imf">
+                                                                    <input type="text" class="form-control mb-4" placeholder="IMF code" value="<?= $row['acct_imf'] ?>" name="acct_imf">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
-                                                        
+
+
 
                                                         <div class="row">
                                                             <div class="col-sm-6">
@@ -417,7 +417,7 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">Marital Status</label>
-                                                                    <input type="text" class="form-control mb-4 text-capitalize" id="profession" placeholder="Date Of Birth" value="<?= $row['marital_status'] ?>" name="marital_status" >
+                                                                    <input type="text" class="form-control mb-4 text-capitalize" id="profession" placeholder="Marital Status" value="<?= $row['marital_status'] ?>" name="marital_status" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -431,10 +431,10 @@ die;
                                                                     </div>
                                                                     <div class="col-md-8">
                                                                         <div class="form-group">
-                                                                            
+
                                                                             <label for="profession">Account Limit</label>
                                                                             <input type="text" class="form-control mb-4" name="acct_limit" placeholder="<?= $row['acct_limit'] ?>" value="<?= $row['acct_limit'] ?>">
-                                                                            
+
                                                                             <input type="text" name="acct_balance" hidden value="<?= $row['acct_balance'] ?>">
                                                                         </div>
                                                                     </div>
@@ -449,9 +449,9 @@ die;
                                                             </div>
                                                         </div>
 
-                                                            <div class="col-md-12">
-                                                                <button class="btn btn-primary text-center" name="profile_save">Save</button>
-                                                            </div>
+                                                        <div class="col-md-12">
+                                                            <button class="btn btn-primary text-center" name="profile_save">Save</button>
+                                                        </div>
 
 
 
@@ -481,7 +481,7 @@ die;
                                                 <label for="">SELECT TYPE IF HOLD OR ACTIVE</label>
                                                 <select name="acct_status" id="" class="form-control  basic">
                                                     <option value="">Select</option>
-                                                        <option value="active">ACTIVE</option>
+                                                    <option value="active">ACTIVE</option>
                                                     <option value="hold">HOLD</option>
                                                 </select>
                                             </div>
@@ -505,7 +505,7 @@ die;
                                                 <button class="btn btn-primary" name="billing_code">Change Billing Code</button>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-md-4 mx-auto">
 
                                             <div class="form-group">
@@ -570,7 +570,7 @@ die;
                                     <div class="row">
                                         <div class="col-md-11 mx-auto">
                                             <div class="form-group">
-<!--                                                <p class="text-danger"></p>-->
+                                                <!--                                                <p class="text-danger"></p>-->
                                                 <label>Current Pin</label>
                                                 <input type="password" class="form-control mb-4" name="current_pin" placeholder="Current Pin" value="">
                                             </div>
@@ -585,30 +585,30 @@ die;
                                             </div>
                                             <div class="form-group">
                                                 <button class="btn btn-primary" name="change_pin" > Change Pin</button>
-                                                
+
                                                 <form class="section about" method="POST">
-                        
-                                                <button class="btn btn-danger" name="status_delete" >  Delete User</button>
-                                           
+
+                                                    <button class="btn btn-danger" name="status_delete" >  Delete User</button>
+
                                                 </form>
-                                            
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            
-                            
+
+
                         </div>
-                        
-                        
+
+
 
 
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <?php
-include_once("./layout/footer.php");
-?>
+            include_once("./layout/footer.php");
+            ?>
