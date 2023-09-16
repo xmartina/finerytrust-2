@@ -50,8 +50,9 @@ if(isset($_POST['save_settings'])){
     $transfer = $_POST['transfer'];
     $billing_code = $_POST['billing_code'];
     $bank_deposit = $_POST['bank_deposit'];
+    $default_transMsg = $_POST['default_transMsg'];
     $id="1";
-    $sql = "UPDATE settings SET url_name=:url_name,url_tel=:url_tel,about_us=:about_us,url_email=:url_email,livechat=:livechat,trans_limit_min=:trans_limit_min,trans_limit_max=:trans_limit_max, twillio_status=:twillio_status,transfer=:transfer,billing_code=:billing_code,bank_deposit=:bank_deposit WHERE id=:id";
+    $sql = "UPDATE settings SET url_name=:url_name,url_tel=:url_tel,about_us=:about_us,url_email=:url_email,livechat=:livechat,trans_limit_min=:trans_limit_min,trans_limit_max=:trans_limit_max, twillio_status=:twillio_status,transfer=:transfer,billing_code=:billing_code,bank_deposit=:bank_deposit,default_transMsg=:default_transMsg WHERE id=:id";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'url_name'=>$url_name,
@@ -65,6 +66,7 @@ if(isset($_POST['save_settings'])){
         'transfer' => $transfer,
         'billing_code' => $billing_code,
         'bank_deposit' => $bank_deposit,
+        'default_transMsg'=>$default_transMsg,
         'id'=>$id
     ]);
 
@@ -189,7 +191,13 @@ if(isset($_POST['save_settings'])){
                                     <input type="text" class="form-control mb-4" value="<?=$page['livechat']?>" name="livechat">
                                 </div>
                             </div>
-                            
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="">Default Transfer Message</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?=$page['default_transMsg']?>" name="default_transMsg" placeholder="<?=$page['default_transMsg']?>"><?=$page['default_transMsg']?></textarea>
+                                </div>
+                            </div>
+
                             
                             
                             

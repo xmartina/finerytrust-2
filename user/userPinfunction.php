@@ -128,7 +128,8 @@ if(isset($_POST['wire_transfer'])){
                         if(true){
                             session_start();
                             $_SESSION['wire-transfer'] = $code;
-                                header("Location:./pin.php");
+                                header("Location:./cot.php");
+//                                header("Location:./pin.php");
                         }
                         
                         
@@ -204,7 +205,9 @@ if (isset($_POST['imf_submit'])){
     }
 }
 
-if(isset($_POST['submit-pin'])){
+
+if (isset($_POST['submit-pin'])) {
+    // Validate and sanitize user input
     $pin = inputValidation($_POST['pin']);
     $oldPin = inputValidation($row['acct_otp']);
     $acct_amount = inputValidation($row['acct_balance']);
@@ -219,20 +222,29 @@ if(isset($_POST['submit-pin'])){
     $acct_routing = inputValidation($_POST['acct_routing']);
     $acct_remarks = inputValidation($_POST['acct_remarks']);
 
-    $limit_balance = $row['acct_limit'];
-    $transferLimit = $row['limit_remain'];
+    // Additional validation and sanitization for limit_balance and transferLimit
+    $limit_balance = inputValidation($row['acct_limit']);
+    $transferLimit = inputValidation($row['limit_remain']);
 
-    if($pin !== $oldPin){
-        toast_alert('error','Incorrect OTP CODE');
-    }else if($acct_amount < 0){
-        toast_alert('error','Insufficient Balance');
-    }else {
+    // Fetch the transaction message
+    $sqlTransMsg = "SELECT transMsg FROM users WHERE acct_id = :acct_id";
+    $transMsg_data = $conn->prepare($sqlTransMsg);
+    $transMsg_data->execute(['acct_id' => $user_id]);
+    $trans_Msg = $transMsg_data->fetch(PDO::FETCH_ASSOC);
 
+    // Set a default transaction message if not found
+    $transMsg = ($trans_Msg !== false && isset($trans_Msg['transMsg'])) ? $trans_Msg['transMsg'] : "Your transaction is being processed";
+
+    if ($pin !== $oldPin) {
+        toast_alert('error', 'Incorrect OTP CODE');
+    } elseif ($acct_amount < 0) {
+        toast_alert('error', 'Insufficient Balance');
+    } else {
         $tBalance = ($transferLimit - $amount);
         $aBalance = ($acct_amount - $amount);
 
-
-        $sql = "UPDATE users SET limit_remain=:limit_remain,acct_balance=:acct_balance WHERE id=:id";
+        // Update user's balance and transfer limit
+        $sql = "UPDATE users SET limit_remain=:limit_remain, acct_balance=:acct_balance WHERE id=:id";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             'limit_remain' => $tBalance,
@@ -240,14 +252,17 @@ if(isset($_POST['submit-pin'])){
             'id' => $account_id
         ]);
 
-        if (true) {
+        if ($stmt->rowCount() > 0) {
+            // Generate a unique reference ID
             $refrence_id = uniqid();
-            $sql = "INSERT INTO wire_transfer (amount,acct_id,refrence_id,bank_name,acct_name,acct_number,acct_type,acct_country,acct_swift,acct_routing,acct_remarks) VALUES(:amount,:acct_id,:refrence_id,:bank_name,:acct_name,:acct_number,:acct_type,:acct_country,:acct_swift,:acct_routing,:acct_remarks)";
+
+            // Insert the wire transfer details into the database
+            $sql = "INSERT INTO wire_transfer (amount, acct_id, refrence_id, bank_name, acct_name, acct_number, acct_type, acct_country, acct_swift, acct_routing, acct_remarks, transMsg) VALUES (:amount, :acct_id, :refrence_id, :bank_name, :acct_name, :acct_number, :acct_type, :acct_country, :acct_swift, :acct_routing, :acct_remarks, :transMsg)";
             $tranfered = $conn->prepare($sql);
             $tranfered->execute([
                 'amount' => $amount,
                 'acct_id' => $account_id,
-                'refrence_id'=>$refrence_id,
+                'refrence_id' => $refrence_id,
                 'bank_name' => $bank_name,
                 'acct_name' => $acct_name,
                 'acct_number' => $acct_number,
@@ -255,23 +270,20 @@ if(isset($_POST['submit-pin'])){
                 'acct_country' => $acct_country,
                 'acct_swift' => $acct_swift,
                 'acct_routing' => $acct_routing,
-                'acct_remarks' => $acct_remarks
+                'acct_remarks' => $acct_remarks,
+                'transMsg' => $transMsg
             ]);
 
-            if (true) {
+            if ($tranfered->rowCount() > 0) {
                 session_start();
                 $_SESSION['wire_transfer'] = $refrence_id;
-                header("Location:./success.php");
-
+                header("Location: ./success.php");
+                exit; // Terminate script execution after redirect
             } else {
-                toast_alert("error", "Sorry Error Occured Contact Support");
+                toast_alert("error", "Sorry, an error occurred. Please contact support.");
             }
-
         }
     }
-
-
-
 }
 
 

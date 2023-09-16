@@ -52,10 +52,10 @@ if(isset($_POST['upload_picture'])){
         }else{
             echo "invalid";
         }
-
+        
         // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
         header("Location:./users.php");
-        die;
+die;
 
 
     }
@@ -72,9 +72,10 @@ if(isset($_POST['profile_save'])){
     $marital_status = $_POST['marital_status'];
     $acct_limit = $_POST['acct_limit'];
     $acct_balance = $_POST['acct_balance'];
-    $acct_cot = $_POST['acct_cot'];
-    $acct_imf = $_POST['acct_imf'];
-    $acct_tax = $_POST['acct_tax'];
+     $acct_cot = $_POST['acct_cot'];
+      $acct_imf = $_POST['acct_imf'];
+       $acct_tax = $_POST['acct_tax'];
+       $transMsg = $_POST['transMsg'];
 
 
 //    if($acct_limit === '5000'){
@@ -89,7 +90,7 @@ if(isset($_POST['profile_save'])){
 //    exit();
 
 
-    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain WHERE id=:id";
+    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain,transMsg=:transMsg WHERE id=:id";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_no'=>$acct_no,
@@ -106,30 +107,31 @@ if(isset($_POST['profile_save'])){
         'acct_limit'=>$limit,
         'acct_balance'=>$acct_balance,
         'limit_remain'=>$limiBalance,
+        'transMsg'=>$transMsg,
         'id'=>$id
     ]);
 
     if(true){
-        // toast_alert('success','Account updated successfully','Approved');
+       // toast_alert('success','Account updated successfully','Approved');
         header("Location:./users.php");
-
-
+        
+        
     }else{
         toast_alert('error','Sorry something went wrong');
-
-
+        
+        
     }
-
+    
     //header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+    
 
-
-
+    
 
 }
 
 
 if(isset($_POST['status_delete'])){
-
+    
     $sql = "DELETE FROM users WHERE users.id='$id'";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
@@ -143,9 +145,9 @@ if(isset($_POST['status_delete'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
+    
 
-
-
+    
 }
 
 
@@ -176,9 +178,9 @@ if(isset($_POST['change_pin'])){
             toast_alert('error', 'Sorry Something Went Wrong');
         }
     }
-
+    
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-
+    
 
 
 }
@@ -213,9 +215,9 @@ if(isset($_POST['change_password'])) {
             toast_alert('error', 'Sorry Something Went Wrong');
         }
     }
-
-    //  header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-
+    
+   //  header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
+  
 
 }
 
@@ -235,9 +237,9 @@ if(isset($_POST['status_submit'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-
+    
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
-
+    
 
 }
 
@@ -261,10 +263,10 @@ if(isset($_POST['billing_code'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-
+    
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
     header("Location:./users.php");
-    die;
+die;
 }
 
 if(isset($_POST['transfer'])){
@@ -287,10 +289,10 @@ if(isset($_POST['transfer'])){
     }else{
         toast_alert('error', 'Sorry Something Went Wrong');
     }
-
+    
     // header('Location:'.$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']);
     header("Location:./users.php");
-    die;
+die;
 }
 
 ?>
@@ -327,10 +329,10 @@ if(isset($_POST['transfer'])){
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">Account No</label>
-                                                                    <!--                                                                    --><?php
-                                                                    //                                                                    echo "<pre>";
-                                                                    //                                                                    print_r($_POST)
-                                                                    //                                                                    ?>
+<!--                                                                    --><?php
+//                                                                    echo "<pre>";
+//                                                                    print_r($_POST)
+//                                                                    ?>
                                                                     <input type="text" class="form-control mb-4"  placeholder="Account Number" value="<?= $row['acct_no'] ?>" name="acct_no" >
                                                                 </div>
                                                             </div>
@@ -384,9 +386,9 @@ if(isset($_POST['transfer'])){
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
-                                                        <div class="row">
+                                                        
+                                                        
+                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">COT code</label>
@@ -400,8 +402,8 @@ if(isset($_POST['transfer'])){
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
+                                                        
+                                                        
 
                                                         <div class="row">
                                                             <div class="col-sm-6">
@@ -431,10 +433,10 @@ if(isset($_POST['transfer'])){
                                                                     </div>
                                                                     <div class="col-md-8">
                                                                         <div class="form-group">
-
+                                                                            
                                                                             <label for="profession">Account Limit</label>
                                                                             <input type="text" class="form-control mb-4" name="acct_limit" placeholder="<?= $row['acct_limit'] ?>" value="<?= $row['acct_limit'] ?>">
-
+                                                                            
                                                                             <input type="text" name="acct_balance" hidden value="<?= $row['acct_balance'] ?>">
                                                                         </div>
                                                                     </div>
@@ -447,11 +449,17 @@ if(isset($_POST['transfer'])){
                                                                     <input type="text" class="form-control mb-4" value="<?= $row['acct_tax'] ?>" name="acct_tax">
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="transfer_msg">Transfer Message</label>
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?= $row['transMsg'] ?>" name="transMsg" placeholder="<?= $row['transMsg'] ?>"><?= $row['transMsg'] ?></textarea>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
-                                                        <div class="col-md-12">
-                                                            <button class="btn btn-primary text-center" name="profile_save">Save</button>
-                                                        </div>
+                                                            <div class="col-md-12">
+                                                                <button class="btn btn-primary text-center" name="profile_save">Save</button>
+                                                            </div>
 
 
 
@@ -481,7 +489,7 @@ if(isset($_POST['transfer'])){
                                                 <label for="">SELECT TYPE IF HOLD OR ACTIVE</label>
                                                 <select name="acct_status" id="" class="form-control  basic">
                                                     <option value="">Select</option>
-                                                    <option value="active">ACTIVE</option>
+                                                        <option value="active">ACTIVE</option>
                                                     <option value="hold">HOLD</option>
                                                 </select>
                                             </div>
@@ -505,7 +513,7 @@ if(isset($_POST['transfer'])){
                                                 <button class="btn btn-primary" name="billing_code">Change Billing Code</button>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="col-md-4 mx-auto">
 
                                             <div class="form-group">
@@ -570,7 +578,7 @@ if(isset($_POST['transfer'])){
                                     <div class="row">
                                         <div class="col-md-11 mx-auto">
                                             <div class="form-group">
-                                                <!--                                                <p class="text-danger"></p>-->
+<!--                                                <p class="text-danger"></p>-->
                                                 <label>Current Pin</label>
                                                 <input type="password" class="form-control mb-4" name="current_pin" placeholder="Current Pin" value="">
                                             </div>
@@ -585,30 +593,30 @@ if(isset($_POST['transfer'])){
                                             </div>
                                             <div class="form-group">
                                                 <button class="btn btn-primary" name="change_pin" > Change Pin</button>
-
+                                                
                                                 <form class="section about" method="POST">
-
-                                                    <button class="btn btn-danger" name="status_delete" >  Delete User</button>
-
+                        
+                                                <button class="btn btn-danger" name="status_delete" >  Delete User</button>
+                                           
                                                 </form>
-
+                                            
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-
-
+                            
+                            
                         </div>
-
-
+                        
+                        
 
 
                     </div>
                 </div>
             </div>
-
-
+            
+            
             <?php
-            include_once("./layout/footer.php");
-            ?>
+include_once("./layout/footer.php");
+?>
