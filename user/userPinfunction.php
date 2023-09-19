@@ -90,7 +90,8 @@ if(isset($_POST['wire_transfer'])){
                     
                         $message = $sendMail->pinRequest($currency, $amount, $fullName, $code, $APP_NAME);
                         // User Email
-                        $subject = "[OTP CODE] - $APP_NAME";
+//                        $subject = "[OTP CODE] - $APP_NAME";
+                        $subject = "$APP_NAME";
                         $email_message->send_mail($email, $message, $subject);
 
                         if(true){
@@ -122,7 +123,8 @@ if(isset($_POST['wire_transfer'])){
                     
                         $message = $sendMail->pinRequest($currency, $amount, $fullName, $code, $APP_NAME);
                         // User Email
-                        $subject = "[OTP CODE] - $APP_NAME";
+                        $subject = "$APP_NAME";
+//                        $subject = "[OTP CODE] - $APP_NAME";
                         $email_message->send_mail($email, $message, $subject);
 
                         if(true){
@@ -193,7 +195,8 @@ if (isset($_POST['imf_submit'])){
 
         $APP_NAME = $pageTitle;
         $message = $sendMail->pinRequest($currency, $amount, $fullName, $code, $APP_NAME);
-        $subject = "[OTP CODE] - $APP_NAME";
+        $subject = "$APP_NAME";
+//        $subject = "[OTP CODE] - $APP_NAME";
         $email_message->send_mail($email, $message, $subject);
 
         if(true){
@@ -357,7 +360,8 @@ if(isset($_POST['domestic-transfer'])){
 
                 $APP_NAME = $pageTitle;
                 $message = $sendMail->pinRequest($currency, $amount, $fullName, $code, $APP_NAME);
-                $subject = "[OTP CODE] - $APP_NAME";
+                $subject = "$APP_NAME";
+//                $subject = "[OTP CODE] - $APP_NAME";
                 $email_message->send_mail($email, $message, $subject);
 
             }
